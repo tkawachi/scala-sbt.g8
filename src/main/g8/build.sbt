@@ -6,4 +6,6 @@ version := "$version$"
 
 scalaVersion := "$scala_version$"
 
+scalariformSettings
+
 DoctestPlugin.doctestSettings
