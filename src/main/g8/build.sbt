@@ -8,4 +8,4 @@ scalaVersion := "$scala_version$"
 
 scalariformSettings
 
-DoctestPlugin.doctestSettings
+doctestSettings
