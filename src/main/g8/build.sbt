@@ -6,6 +6,14 @@ val commonSettings = Seq(
     "scm:git:github.com:tkawachi/$name$.git"
   )),
   scalaVersion := "$scala_version$",
+  scalacOptions ++= Seq(
+    "-deprecation",
+    "-encoding", "UTF-8",
+    "-feature",
+    "-unchecked",
+    "-Xfatal-warnings",
+    "-Xlint"
+  )
   doctestTestFramework := DoctestTestFramework.ScalaTest
 ) ++ scalariformSettings ++ doctestSettings
 
