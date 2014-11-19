@@ -5,6 +5,7 @@ val commonSettings = Seq(
     url("https://github.com/tkawachi/$name$/"),
     "scm:git:github.com:tkawachi/$name$.git"
   )),
+
   scalaVersion := "$scala_version$",
   scalacOptions ++= Seq(
     "-deprecation",
@@ -14,6 +15,7 @@ val commonSettings = Seq(
     "-Xfatal-warnings",
     "-Xlint"
   ),
+
   doctestTestFramework := DoctestTestFramework.ScalaTest
 ) ++ scalariformSettings ++ doctestSettings
 
