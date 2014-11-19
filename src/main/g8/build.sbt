@@ -13,7 +13,7 @@ val commonSettings = Seq(
     "-unchecked",
     "-Xfatal-warnings",
     "-Xlint"
-  )
+  ),
   doctestTestFramework := DoctestTestFramework.ScalaTest
 ) ++ scalariformSettings ++ doctestSettings
 
