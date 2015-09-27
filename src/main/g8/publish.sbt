@@ -1,16 +1,8 @@
-import sbtrelease._
-import ReleaseStateTransformations._
+import ReleaseTransformations._
 
-sonatypeSettings
+releaseCrossBuild := true
 
-releaseSettings
-
-ReleaseKeys.crossBuild := true
-
-def runTaskStep[A](task: TaskKey[A]) =
-  ReleaseStep(state => Project.extract(state).runTask(task, state)._1)
-
-ReleaseKeys.releaseProcess := Seq[ReleaseStep](
+releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
   inquireVersions,
   runClean,
@@ -18,20 +10,20 @@ ReleaseKeys.releaseProcess := Seq[ReleaseStep](
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,
-  runTaskStep(PgpKeys.publishSigned),
+  ReleaseStep(action = Command.process("publishSigned", _), enableCrossBuild = true),
   setNextVersion,
   commitNextVersion,
-  runTaskStep(SonatypeKeys.sonatypeReleaseAll),
+  ReleaseStep(action = Command.process("sonatypeReleaseAll", _), enableCrossBuild = true),
   pushChanges
 )
 
 pomExtra := {
-  <url>https://github.com/tkawachi/$name$/</url>
+  <url>https://github.com/$github_user$/$github_repo$/</url>
   <developers>
     <developer>
-      <id>kawachi</id>
-      <name>Takashi Kawachi</name>
-      <url>https://github.com/tkawachi</url>
+      <id>$sonatype_id$</id>
+      <name>$full_name$</name>
+      <url>https://github.com/$github_user$</url>
     </developer>
   </developers>
 }
