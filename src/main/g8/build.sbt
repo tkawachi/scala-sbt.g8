@@ -17,7 +17,7 @@ val commonSettings = Seq(
   ),
 
   doctestTestFramework := DoctestTestFramework.ScalaTest
-) ++ scalariformSettings ++ doctestSettings
+)
 
 lazy val root = project.in(file("."))
   .settings(commonSettings :_*)
