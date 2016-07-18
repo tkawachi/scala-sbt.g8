@@ -14,14 +14,15 @@ val commonSettings = Seq(
     "-unchecked",
     "-Xfatal-warnings",
     "-Xlint"
-  ),
-
-  doctestTestFramework := DoctestTestFramework.ScalaTest
+  )
 )
 
 lazy val root = project.in(file("."))
   .settings(commonSettings :_*)
   .settings(
     name := "$name$",
-    description := "$description_$"
+    description := "$description_$",
+    libraryDependencies ++= Seq(
+      "org.scalatest" %% "scalatest" % "3.0.0-RC4" % "test"
+    )
   )
