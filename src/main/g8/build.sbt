@@ -23,6 +23,6 @@ lazy val root = project.in(file("."))
     name := "$name$",
     description := "$description_$",
     libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest" % "3.0.0-RC4" % "test"
+      "org.scalatest" %% "scalatest" % "3.0.0" % "test"
     )
   )
