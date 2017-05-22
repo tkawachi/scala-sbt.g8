@@ -7,6 +7,7 @@ val commonSettings = Seq(
   )),
 
   scalaVersion := "$scala_version$",
+  crossScalaVersions := Seq("2.11.11", "$scala_version$"),
   scalacOptions ++= Seq(
     "-deprecation",
     "-encoding", "UTF-8",
@@ -23,6 +24,7 @@ lazy val root = project.in(file("."))
     name := "$name$",
     description := "$description_$",
     libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest" % "3.0.0" % "test"
+      "org.scalatest" %% "scalatest" % "3.0.3" % "test",
+      "org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
     )
   )
